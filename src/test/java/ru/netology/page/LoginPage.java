@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import ru.netology.data.DataHelper;
 
+import static com.codeborne.selenide.Selenide.page;
+
 public class LoginPage {
     @FindBy(css = "[data-test-id=login] input")
     private SelenideElement loginField;
@@ -23,6 +25,6 @@ public class LoginPage {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
         loginButton.click();
-        return new VerificationPage();
+        return page (VerificationPage.class);
     }
 }
